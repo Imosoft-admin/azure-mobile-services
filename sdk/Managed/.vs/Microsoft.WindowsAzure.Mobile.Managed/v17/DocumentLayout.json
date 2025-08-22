@@ -3,8 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\CorstianBoerman-Imos\\Projects\\azure-mobile-services\\sdk\\Managed\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{75557793-E36E-4190-8714-5BD2665859FB}|src\\Microsoft.WindowsAzure.MobileServices\\Microsoft.WindowsAzure.Mobile.csproj|c:\\users\\corstianboerman-imos\\projects\\azure-mobile-services\\sdk\\managed\\src\\microsoft.windowsazure.mobileservices\\http\\httputility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{75557793-E36E-4190-8714-5BD2665859FB}|src\\Microsoft.WindowsAzure.MobileServices\\Microsoft.WindowsAzure.Mobile.csproj|solutionrelative:src\\microsoft.windowsazure.mobileservices\\http\\httputility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BA83494B-A52F-4CC8-B2BE-E339376AD2D5}|src{BA83494B-A52F-4CC8-B2BE-E339376AD2D5}|Microsoft.WindowsAzure.Mobile||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{75557793-E36E-4190-8714-5BD2665859FB}|src\\Microsoft.WindowsAzure.MobileServices\\Microsoft.WindowsAzure.Mobile.csproj|c:\\users\\corstianboerman-imos\\projects\\azure-mobile-services\\sdk\\managed\\src\\microsoft.windowsazure.mobileservices\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|d4ef973f-9f25-46d3-aad7-1edb85e04153"
     }
   ],
   "DocumentGroupContainers": [
@@ -31,14 +33,13 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "HttpUtility.cs",
-              "DocumentMoniker": "C:\\Users\\CorstianBoerman-Imos\\Projects\\azure-mobile-services\\sdk\\Managed\\src\\Microsoft.WindowsAzure.MobileServices\\Http\\HttpUtility.cs",
-              "RelativeDocumentMoniker": "src\\Microsoft.WindowsAzure.MobileServices\\Http\\HttpUtility.cs",
-              "ToolTip": "C:\\Users\\CorstianBoerman-Imos\\Projects\\azure-mobile-services\\sdk\\Managed\\src\\Microsoft.WindowsAzure.MobileServices\\Http\\HttpUtility.cs",
-              "RelativeToolTip": "src\\Microsoft.WindowsAzure.MobileServices\\Http\\HttpUtility.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-21T09:35:33.913Z",
+              "Title": "Microsoft.WindowsAzure.Mobile",
+              "DocumentMoniker": "C:\\Users\\CorstianBoerman-Imos\\Projects\\azure-mobile-services\\sdk\\Managed\\src\\Microsoft.WindowsAzure.MobileServices\\Microsoft.WindowsAzure.Mobile.csproj",
+              "RelativeDocumentMoniker": "src\\Microsoft.WindowsAzure.MobileServices\\Microsoft.WindowsAzure.Mobile.csproj",
+              "ToolTip": "C:\\Users\\CorstianBoerman-Imos\\Projects\\azure-mobile-services\\sdk\\Managed\\src\\Microsoft.WindowsAzure.MobileServices\\Microsoft.WindowsAzure.Mobile.csproj",
+              "RelativeToolTip": "src\\Microsoft.WindowsAzure.MobileServices\\Microsoft.WindowsAzure.Mobile.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-08-22T07:57:39.97Z",
               "EditorCaption": ""
             }
           ]
