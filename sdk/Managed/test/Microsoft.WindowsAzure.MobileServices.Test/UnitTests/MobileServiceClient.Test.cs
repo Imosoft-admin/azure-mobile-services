@@ -692,7 +692,7 @@ namespace Microsoft.WindowsAzure.MobileServices.Test
             TestHttpHandler hijack = new TestHttpHandler();
 
             hijack.Response = new HttpResponseMessage(System.Net.HttpStatusCode.BadRequest);
-            hijack.Response.Content = new StringContent("message", Encoding.UTF8, null);
+            hijack.Response.Content = new StringContent("message", Encoding.UTF8);
             hijack.Response.Content.Headers.ContentType = null;
 
             MobileServiceClient service = new MobileServiceClient("http://www.test.com", "secret...", hijack);

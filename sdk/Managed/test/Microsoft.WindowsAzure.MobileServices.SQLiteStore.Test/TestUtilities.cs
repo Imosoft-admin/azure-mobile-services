@@ -3,8 +3,8 @@
 // ----------------------------------------------------------------------------
 
 using System;
+using Microsoft.Data.Sqlite;
 using Microsoft.WindowsAzure.MobileServices.Sync;
-using SQLitePCL;
 
 namespace Microsoft.WindowsAzure.MobileServices.SQLiteStore.Test
 {
@@ -25,14 +25,9 @@ namespace Microsoft.WindowsAzure.MobileServices.SQLiteStore.Test
         public static long CountRows(string dbName, string tableName)
         {
             long count;
-            using (var connection = new SQLiteConnection(dbName))
+            using (var connection = new SqliteConnection(dbName))
             {
-                using (var statement = connection.Prepare("SELECT COUNT(1) from " + tableName))
-                {
-                    statement.Step();
-
-                    count = (long)statement[0];
-                }
+                count = (long)new SqliteCommand("SELECT COUNT(1) from " + tableName, connection).ExecuteScalar();
             }
             return count;
         }
@@ -44,15 +39,9 @@ namespace Microsoft.WindowsAzure.MobileServices.SQLiteStore.Test
 
         public static void ExecuteNonQuery(string dbName, string sql)
         {
-            using (var connection = new SQLiteConnection(dbName))
+            using (var connection = new SqliteConnection(dbName))
             {
-                using (var statement = connection.Prepare(sql))
-                {
-                    if (statement.Step() != SQLiteResult.DONE)
-                    {
-                        throw new InvalidOperationException();
-                    }
-                }
+                new SqliteCommand(sql, connection).ExecuteNonQuery();
             }
         }
     }

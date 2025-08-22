@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard1.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
     <DefaultLanguage>en-US</DefaultLanguage>
     <OutputPath Condition=" '$(OutputPath)' == '' ">bin\$(Configuration)</OutputPath>
     <OutputType>Library</OutputType>
@@ -14,7 +14,7 @@
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>
     </DocumentationFile>
-    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
     <CodeAnalysisAdditionalOptions>
       /assemblyCompareMode:StrongNameIgnoringVersion
     </CodeAnalysisAdditionalOptions>
@@ -29,6 +29,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Resources.resx">
@@ -36,12 +37,6 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Bcl" Version="1.1.9" />
-    <PackageReference Include="Microsoft.Bcl.Build" Version="1.0.14" />
-    <PackageReference Include="Microsoft.Net.Http" Version="2.2.28" />
-    <PackageReference Include="Newtonsoft.Json" Version="6.0.4" />
   </ItemGroup>
   <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''" />
 </Project>

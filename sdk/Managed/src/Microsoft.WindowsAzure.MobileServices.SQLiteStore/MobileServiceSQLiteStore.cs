@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Data.Sqlite;
 using Microsoft.WindowsAzure.MobileServices.Query;
 using Microsoft.WindowsAzure.MobileServices.Sync;
 using Newtonsoft.Json.Linq;
@@ -28,7 +29,7 @@ namespace Microsoft.WindowsAzure.MobileServices.SQLiteStore
         private const int MaxParametersPerQuery = 800;
 
         private Dictionary<string, TableDefinition> tableMap = new Dictionary<string, TableDefinition>(StringComparer.OrdinalIgnoreCase);
-        private SQLiteConnection connection;
+        private SqliteConnection connection;
 
         protected MobileServiceSQLiteStore() { }
 
@@ -43,7 +44,7 @@ namespace Microsoft.WindowsAzure.MobileServices.SQLiteStore
                 throw new ArgumentNullException("fileName");
             }
 
-            this.connection = new SQLiteConnection(fileName);
+            this.connection = new SqliteConnection(fileName);
         }
 
         /// <summary>
@@ -485,8 +486,12 @@ namespace Microsoft.WindowsAzure.MobileServices.SQLiteStore
         {
             parameters = parameters ?? new Dictionary<string, object>();
 
+            var command = new SqliteCommand(sql, this.connection);
+            command.Parameters.AddRange(
+                parameters.Select(q => new SqliteParameter(q.Key, q.Value)));
+            command.ExecuteNonQuery();
 
-            using (ISQLiteStatement statement = this.connection.Prepare(sql))
+            /*using (ISQLiteStatement statement = this.connection.Prepare(sql))
             {
                 foreach (KeyValuePair<string, object> parameter in parameters)
                 {
@@ -495,7 +500,7 @@ namespace Microsoft.WindowsAzure.MobileServices.SQLiteStore
 
                 SQLiteResult result = statement.Step();
                 ValidateResult(result);
-            }
+            }*/
         }
 
         /// <summary>
@@ -517,41 +522,31 @@ namespace Microsoft.WindowsAzure.MobileServices.SQLiteStore
             parameters = parameters ?? new Dictionary<string, object>();
 
             var rows = new List<JObject>();
-            using (ISQLiteStatement statement = this.connection.Prepare(sql))
+            var command = new SqliteCommand(sql, this.connection);
+
+            command.Parameters.AddRange(
+                parameters.Select(q => new SqliteParameter(q.Key, q.Value)));
+
+            using (var reader = command.ExecuteReader())
             {
-                foreach (KeyValuePair<string, object> parameter in parameters)
+                while (reader.Read())
                 {
-                    statement.Bind(parameter.Key, parameter.Value);
+                    rows.Add(ReadRow(table, reader));
                 }
-
-                SQLiteResult result;
-                while ((result = statement.Step()) == SQLiteResult.ROW)
-                {
-                    var row = ReadRow(table, statement);
-                    rows.Add(row);
-                }
-
-                ValidateResult(result);
             }
 
             return rows;
         }
 
-        private static void ValidateResult(SQLiteResult result)
+        private JObject ReadRow(TableDefinition table, SqliteDataReader reader)
         {
-            if (result != SQLiteResult.DONE)
-            {
-                throw new SQLiteException(string.Format("Query execution failed with result: '{0}'.", result));
-            }
-        }
+            
 
-        private JObject ReadRow(TableDefinition table, ISQLiteStatement statement)
-        {
             var row = new JObject();
-            for (int i = 0; i < statement.ColumnCount; i++)
+            for (int i = 0; i < reader.VisibleFieldCount; i++)
             {
-                string name = statement.ColumnName(i);
-                object value = statement[i];
+                string name = reader.GetName(i);
+                object value = reader[i];
 
                 ColumnDefinition column;
                 if (table.TryGetValue(name, out column))

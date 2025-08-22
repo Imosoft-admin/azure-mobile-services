@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard1.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <OutputType>Library</OutputType>
     <RootNamespace>Microsoft.WindowsAzure.MobileServices.SQLiteStore.Test</RootNamespace>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
@@ -18,13 +18,7 @@
     <ProjectReference Include="..\..\src\Microsoft.WindowsAzure.MobileServices\Microsoft.WindowsAzure.Mobile.csproj" />
     <ProjectReference Include="..\Microsoft.WindowsAzure.MobileServices.TestFramework\Microsoft.WindowsAzure.Mobile.TestFramework.csproj" />
     <ProjectReference Include="..\Microsoft.WindowsAzure.MobileServices.Test\Microsoft.WindowsAzure.Mobile.Test.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Bcl" Version="1.1.9" />
-    <PackageReference Include="Microsoft.Bcl.Build" Version="1.0.14" />
-    <PackageReference Include="Microsoft.Net.Http" Version="2.2.28" />
-    <PackageReference Include="Newtonsoft.Json" Version="6.0.4" />
-    <PackageReference Include="SQLitePCL" Version="3.8.7.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
   <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''" />
 </Project>

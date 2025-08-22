@@ -2,15 +2,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.13.35931.197
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.WindowsAzure.Mobile", "src\Microsoft.WindowsAzure.MobileServices\Microsoft.WindowsAzure.Mobile.csproj", "{75557793-E36E-4190-8714-5BD2665859FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.WindowsAzure.Mobile", "src\Microsoft.WindowsAzure.MobileServices\Microsoft.WindowsAzure.Mobile.csproj", "{75557793-E36E-4190-8714-5BD2665859FB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{BA83494B-A52F-4CC8-B2BE-E339376AD2D5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{45E57CDC-7178-4915-8D0B-CF80F5E44AF6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.WindowsAzure.Mobile.Test", "test\Microsoft.WindowsAzure.MobileServices.Test\Microsoft.WindowsAzure.Mobile.Test.csproj", "{D8BBC92A-B213-463B-911D-3A106F91D5F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.WindowsAzure.Mobile.Test", "test\Microsoft.WindowsAzure.MobileServices.Test\Microsoft.WindowsAzure.Mobile.Test.csproj", "{D8BBC92A-B213-463B-911D-3A106F91D5F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.WindowsAzure.Mobile.TestFramework", "test\Microsoft.WindowsAzure.MobileServices.TestFramework\Microsoft.WindowsAzure.Mobile.TestFramework.csproj", "{A2500BD2-A9A2-4085-9978-DEE3675B02DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.WindowsAzure.Mobile.TestFramework", "test\Microsoft.WindowsAzure.MobileServices.TestFramework\Microsoft.WindowsAzure.Mobile.TestFramework.csproj", "{A2500BD2-A9A2-4085-9978-DEE3675B02DD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{E0DB6669-9295-4034-8E6D-7C4F2ED297DD}"
 	ProjectSection(SolutionItems) = preProject
@@ -19,7 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{E0DB66
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.WindowsAzure.Mobile.Test.Unit", "test\Microsoft.WindowsAzure.MobileServices.Test.Unit\Microsoft.WindowsAzure.Mobile.Test.Unit.csproj", "{574B5567-FF51-4B0F-A9ED-CC9F711E9156}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.WindowsAzure.Mobile.Test.Unit", "test\Microsoft.WindowsAzure.MobileServices.Test.Unit\Microsoft.WindowsAzure.Mobile.Test.Unit.csproj", "{574B5567-FF51-4B0F-A9ED-CC9F711E9156}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
