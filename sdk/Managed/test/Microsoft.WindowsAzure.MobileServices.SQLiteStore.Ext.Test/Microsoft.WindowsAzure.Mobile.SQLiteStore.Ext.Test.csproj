@@ -2,30 +2,49 @@
   <PropertyGroup>
     <TargetFramework>net8.0-windows</TargetFramework>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Microsoft.WindowsAzure.MobileServices.Test</RootNamespace>
+    <RootNamespace>Microsoft.WindowsAzure.MobileServices.SQLiteStore.Test</RootNamespace>
+    <AssemblyName>Microsoft.WindowsAzure.Mobile.SQLiteStore.Net45.Test</AssemblyName>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
-    <RestorePackages>true</RestorePackages>
     <UseWPF>true</UseWPF>
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
-    <Configurations>Debug;Release;Signed</Configurations>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Bcl" Version="1.1.9" />
     <PackageReference Include="Microsoft.Bcl.Build" Version="1.0.14" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="SQLitePCL" Version="3.8.7.2" />
     <PackageReference Include="System.Net.Http" Version="4.3.4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Microsoft.WindowsAzure.Mobile.Ext.Test\ConsoleHelper.cs">
+      <Link>ConsoleHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.WindowsAzure.Mobile.Ext.Test\UI\GroupDescription.cs">
+      <Link>UI\GroupDescription.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.WindowsAzure.Mobile.Ext.Test\UI\TestDescription.cs">
+      <Link>UI\TestDescription.cs</Link>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Microsoft.WindowsAzure.MobileServices.Net45\Microsoft.WindowsAzure.Mobile.Ext.csproj" />
+    <ProjectReference Include="..\..\src\Microsoft.WindowsAzure.MobileServices.Ext\Microsoft.WindowsAzure.Mobile.Ext.csproj" />
+    <ProjectReference Include="..\..\src\Microsoft.WindowsAzure.MobileServices.SQLiteStore\Microsoft.WindowsAzure.Mobile.SQLiteStore.csproj" />
     <ProjectReference Include="..\..\src\Microsoft.WindowsAzure.MobileServices\Microsoft.WindowsAzure.Mobile.csproj" />
+    <ProjectReference Include="..\Microsoft.WindowsAzure.MobileServices.SQLiteStore.Test\Microsoft.WindowsAzure.Mobile.SQLiteStore.Test.csproj" />
     <ProjectReference Include="..\Microsoft.WindowsAzure.MobileServices.TestFramework\Microsoft.WindowsAzure.Mobile.TestFramework.csproj" />
     <ProjectReference Include="..\Microsoft.WindowsAzure.MobileServices.Test\Microsoft.WindowsAzure.Mobile.Test.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="PlatformTests\" />
+    <Folder Include="UnitTests\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="sqlite3.dll">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''" />
 </Project>
